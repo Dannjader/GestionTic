@@ -35,15 +35,7 @@ class Servicio(models.Model):
     requerimiento = models.CharField(max_length=200)
     solucion = models.TextField(max_length=1000)
     fecha = models.DateTimeField("fecha_servicio", auto_now_add=True)
-    dispositivos = models.ForeignKey(Dispositivo, on_delete=models.CASCADE)
+    dispositivos= models.ForeignKey(Dispositivo, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.tipo_servicio} - {self.requerimiento} - {self.solucion} - {self.fecha}"
-
-
-class Tecnico(models.Model):
-    usuario = models.OneToOneField(User, on_delete=models.CASCADE)
-    nombre = models.CharField(max_length=100)
-    apellido = models.CharField(max_length=100)
-    cargo = models.CharField(max_length=100)
-    departamento = models.CharField(max_length=100)
