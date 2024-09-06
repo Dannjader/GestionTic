@@ -3,6 +3,7 @@ from django.db import models
 
 
 class Responsable(models.Model):
+    id = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=100)
     apellido = models.CharField(max_length=100)
     cargo = models.CharField(max_length=100)
@@ -12,6 +13,7 @@ class Responsable(models.Model):
 
 
 class Dispositivo(models.Model):
+    id = models.AutoField(primary_key=True)
     serial = models.CharField(max_length=50)
     tipo_dispositivo = models.CharField(max_length=50)
     marca = models.CharField(max_length=50)
@@ -22,10 +24,11 @@ class Dispositivo(models.Model):
     responsable = models.ForeignKey(Responsable, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.serial} - {self.tipo_dispositivo} - {self.marca} - {self.modelo} - {self.ubicacion}"
+        return f"{self.activo_nuevo} - {self.serial} - {self.tipo_dispositivo} - {self.marca} - {self.modelo} - {self.ubicacion}"
 
 
 class Servicio(models.Model):
+    id = models.AutoField(primary_key=True)
     CHOICES = (
         ('error', 'Error'),
         ('mejora', 'Mejora'),

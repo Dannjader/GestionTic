@@ -21,13 +21,25 @@ class ServicioResource(resources.ModelResource):
 
 class ResponsableAdmin(ImportExportModelAdmin):
     resource_class = ResponsableResource
-    list_display = ('nombre', 'apellido', 'cargo', 'id')
-    search_fields = ('nombre',)
+    list_display = (
+        'id',
+        'nombre',
+        'apellido',
+        'cargo'
+    )
+    list_filter = ('nombre', 'apellido',)
+    #list_per_page = (25)
+    #search_fields = ('id',)
+    # fieldsets = (
+    #     (None, {'fields': ('nombre', 'apellido', 'cargo')}),
+    #     ('Relaciones', {'fields': ('dispositivos',)}),
+    # )
 
 
 class DispositivoAdmin(ImportExportModelAdmin):
     resource_class = DispositivoResource
     list_display = (
+        'id',
         'activo_nuevo',
         'tipo_dispositivo',
         'marca',
@@ -35,19 +47,30 @@ class DispositivoAdmin(ImportExportModelAdmin):
         'serial',
         'responsable'
     )
-    search_fields = ('activo_nuevo',)
+    #search_fields = ('activo_nuevo',)
+    list_filter = ('activo_nuevo', 'activo_viejo',)
+    # fieldsets = (
+    #     (None, {'fields': ('serial', 'tipo_dispositivo', 'marca', 'modelo', 'activo_viejo', 'activo_nuevo', 'ubicacion')}),
+    #     ('Relaciones', {'fields': ('responsables',)}),
+    # )
 
 
 class ServicioAdmin(ImportExportModelAdmin):
     resource_class = ServicioResource
     list_display = (
+        'id',
         'tipo_servicio',
         'requerimiento',
         'solucion',
         'fecha',
         'dispositivos',
     )
+    list_filter = ('dispositivos',)
     search_fields = ('dispositivos',)
+    # fieldsets = (
+    #     (None, {'fields': ('tipo_servicio', 'requerimiento', 'solucion', 'dispositivos',)}),
+    #     ('Dispositivos relacionados', {'fields': ()}),
+    # )
 
 
 # Registra tus modelos en el panel de administración

@@ -74,8 +74,7 @@ pip install -r requeriments.txt
 ```
 python3 manage.py migrate
 ```
-
-    - En windows
+* En windows
 
 ```
 py manage.py migrate

@@ -15,7 +15,7 @@ def login_view(request):
         if user is not None:
             login(request, user)
             # Asegúrate de tener una URL llamada 'home' en tu urls.py
-            return redirect('home')
+            return redirect('http://127.0.0.1:8000/admin/')
         else:
             # Si el usuario no existe o la contraseña es incorrecta, muestra un mensaje de error
             return render(request, 'login.html', {'error': 'Invalid username or password.'})

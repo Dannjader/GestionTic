@@ -86,6 +86,16 @@ DATABASES = {
     }
 }
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": "gestiontic",
+#         "USER": "dannjader",
+#         "PASSWORD": "admintic2024+",
+#         "HOST": "127.0.0.1",
+#         "PORT": "5432",
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -136,7 +146,7 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-##JAZZMIN_SETTINGS["show_ui_builder"] = True,
+# JAZZMIN_SETTINGS["show_ui_builder"] = True,
 
 JAZZMIN_SETTINGS = {
     "site_title": "Gestion Tic",
