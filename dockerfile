@@ -6,9 +6,9 @@ WORKDIR /gestiontic_app
 
 RUN pip install --upgrade pip
 
-COPY requeriments.txt ./gestiontic_app/
+COPY requirements.txt .
 
-RUN pip install --no-cache-dir -r requeriments.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 
 EXPOSE 8000
